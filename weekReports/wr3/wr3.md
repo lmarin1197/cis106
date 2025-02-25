@@ -1,6 +1,6 @@
 # Week Report 3
 ## Completed work for week 3
-* Link to lab3.md (you have not created this file yet therefore you need to create this file and put some place holder text in it)
+* [Lab3](/labs/lab3/lab3.md)
 * [Notes 3](/notes/notes3/notes3.md)
 ## Practice
 ### Practice 1
