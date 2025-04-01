@@ -1,0 +1,104 @@
+# Notes 5 
+- ## mkdir
+    - Usage
+      - creating a single directory or multiple directories.
+    - Formula
+        - `mkdir` + `directory name`
+    - Examples
+      - Create a directory in the present working directory 
+        - `mkdir wallpapers`
+      - Create a directory using relative path
+        - `mkdir wallpapers/ocean`
+      - Create a directory with a space in the name
+        - a. `mkdir wallpapers/new\ cars`
+        - b. `mkdir wallpapers/'cities usa'`
+      - Create a directory with a single quote in the name
+        -  `mkdir wallpapers/"majora's mask"`
+      - Create multiple directories
+        - `mkdir wallpapers/cars wallpapers/cities wallpapers/forest`
+      - Create a directory with a parent directory at the same time
+        - `mkdir -p wallpapers_others/movies`  
+- ## touch
+    - Usage
+      - creating files
+    - Formula
+        - `touch` + `file name`
+    - Examples
+      - Create a file called list
+        - `touch list`
+      - Create several files
+        - `touch list_of_cars.txt script.py names.csv`
+      - Create a file using absolute path
+        - `touch ~/Downloads/games.txt`
+      - Create a file using relative path
+        - `touch Downloads/games2.txt`
+      - Create a file with a space in the name
+        - `touch "list of foods.txt"`  
+- ## rm
+    - Usage
+      - removing files
+    - Formula
+        - `rm` + `file`
+        
+    - Examples
+      - Remove a file
+        - `rm list`
+      - Remove a file and prompt confirmation before removal
+        - `rm -i list`
+      - Remove all the files inside a directory and ask before removing more than 3 files
+        - `rm -I Downloads/games/*`
+
+- ## rmdir
+    - Usage
+      - removing directories
+    - Formula
+        - `rm -r` + `path to directory` 
+    - Examples
+      - Remove an empty directory
+        - `rmdir Downloads/games`
+      - Remove a non-empty directory
+        - `rm -r Downloads/games` 
+- ## mv
+    - Usage
+      - moving and renaming directories
+    - Formula
+        - `mv` + `source` + `destination`
+    - Examples (Moving)
+      - Move a file from one directory to another using relative path
+        - `mv Downloads/homework.pdf Documents/`
+      - Move a file from one directory to another using absolute path
+        - `sudo mv ~/Downloads/them /usr/share/themes`
+      - Move a file from one directory to another combining absolute and relative path
+        - `mv Downloads/english_homework.docx /media/student/flashdrive/` 
+      - Move multiple directories/files to a different directory
+        - `mv games/ wallpapers/ rockmusic/ /media/student/flashdrive/`
+    - Examples (renaming)
+      - Rename a file
+        - `mv homework.docx cis106homework.docx`
+      - Rename a file using absolute path
+        - `mv ~/Downloads/homework.docx ~/Downloads/cis106homework.docx`
+      - Move and rename a file in the same command
+        - `mv Downloads/cis106homework.docx Documents/new_cis106homework.docx`
+- ## cp
+    - Usage
+      - copying files/directories from a source to a destination
+    - Formula
+        - `cp` + `files to copy` + `destination`
+        - (to copy directories) `cp -r` + `directory to copy` + `destination`
+    - Examples
+      - Copy a file
+        - `cp Downloads/wallpapers.zip Pictures/`
+      - Copy a directory with absolute path
+        - `cp -r ~/Downloads/wallpapers ~/Pictures/`
+      - Copy the content of a directory to another directory
+        - `cp Downloads/wallpapers/* ~/Pictures/
+      - Copy multiple files in a single command
+        - `sudo cp -r script.sh program.py home.html assets/ /var/www/html/`
+- ## file
+    - Usage
+      - determining the file type of a file
+    - Formula
+        - `file` + `filename`
+    - Examples
+      - Display file type without a name
+        - `file -b filename`
