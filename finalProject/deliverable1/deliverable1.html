@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>deliverable1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="basic-terminology">Basic Terminology</h2>
+<hr>
+<h3 id="what-is-a-web-server">What is a web server?</h3>
+<p>A <strong>web server</strong> is software that delivers web pages to users by handling HTTP requests from clients like browsers.</p>
+<h3 id="what-is-apache">What is Apache?</h3>
+<p><strong>Apache</strong> is a widely used open-source web server application. It’s known for its flexibility, supports various modules, and runs on multiple operating systems. It’s part of the Apache Software Foundation and has been a go-to choice for serving websites for decades.</p>
+<h3 id="what-are-some-example-web-server-applications">What are some example web server applications?</h3>
+<table>
+<thead>
+<tr>
+<th>Application Name</th>
+<th>License</th>
+<th>Project's Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache HTTP Server</td>
+<td>Apache License 2.0</td>
+<td><a href="https://httpd.apache.org">Apache</a></td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td>2-clause BSD license</td>
+<td><a href="https://nginx.org">Nginx</a></td>
+</tr>
+<tr>
+<td>Lighttpd</td>
+<td>BSD license</td>
+<td><a href="https://www.lighttpd.net">Lighttpd</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="apache-http-server">Apache HTTP Server</h4>
+<p><img src="Apache.png" alt="Apache Logo"><br>
+As stated above, <strong>Apache</strong> is one of the most common web servers. It’s reliable, customizable, and supports features like URL rewriting, load balancing, and virtual hosts.</p>
+<h4 id="nginx">Nginx</h4>
+<p><img src="Nginx.jpg" alt="Nginx Logo"><br>
+<strong>Nginx</strong> is a lightweight and super fast web server that is often used as a reverse proxy or load balancer in high-traffic environments.</p>
+<h4 id="lighttpd">Lighttpd</h4>
+<p><img src="Lighttpd.png" alt="Lighttpd Logo"><br>
+<strong>Lighttpd</strong> is designed to be secure, fast, and lightweight. It’s great for serving static content and works well on low-resource systems.</p>
+<h3 id="what-is-virtualization">What is virtualization?</h3>
+<p><strong>Virtualization</strong> is the process of running multiple operating systems on a single physical machine by using software to simulate hardware environments.</p>
+<h3 id="what-is-virtualbox">What is VirtualBox?</h3>
+<p><img src="Virtualbox_logo.png" alt="logo virtualbox"><br>
+<strong>VirtualBox</strong> is a free and open-source virtualization tool developed by Oracle. It lets users run different OSes in virtual machines on their computer.</p>
+<h3 id="what-is-a-virtual-machine">What is a virtual machine?</h3>
+<p>A <strong>virtual machine</strong> (VM) is a software-based emulation of a physical computer. It runs an OS and applications like a normal computer but inside a host system.</p>
+<h3 id="what-is-ubuntu-server">What is Ubuntu Server?</h3>
+<p><img src="Ubuntu_logo.png" alt="ubuntu logo"><br>
+<strong>Ubuntu Server</strong> is a Linux distribution designed for servers. It’s open-source, stable, and commonly used for hosting websites, cloud services, and more.</p>
+<h3 id="what-is-a-firewall">What is a firewall?</h3>
+<p>A <strong>firewall</strong> is a security system that controls incoming and outgoing network traffic. It helps block unauthorized access while allowing legitimate communication.</p>
+<h3 id="what-is-ssh">What is SSH?</h3>
+<p><strong>SSH</strong> (Secure Shell) is a protocol used to securely connect to remote machines. It encrypts all data, making remote administration safe over networks.</p>
+<h2 id="other-relevant-concepts">Other Relevant Concepts</h2>
+<ul>
+<li>
+<h4 id="systemd">Systemd</h4>
+</li>
+</ul>
+<p><strong>Systemd</strong> is the default system and service manager for many Linux distributions. It handles boot processes, service management, and system logging.</p>
+<ul>
+<li>
+<h4 id="systemctl">Systemctl</h4>
+</li>
+</ul>
+<p><strong>Systemctl</strong> is the command-line tool used to interact with systemd. You can start, stop, enable, or check the status of services with it.</p>
+<ul>
+<li>
+<h4 id="virtual-hosts">Virtual hosts</h4>
+</li>
+</ul>
+<p><strong>Virtual hosts</strong> allow a web server to host multiple websites on a single machine. Each site can have its own domain and settings, even if they share the same IP.</p>
+<ul>
+<li>
+<h4 id="log-file">Log file</h4>
+</li>
+</ul>
+<p>A <strong>log file</strong> records events that happen on a system or application. Web server logs, for example, keep track of page requests, errors, and other activity.</p>
+
+</body>
+</html>
